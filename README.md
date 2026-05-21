@@ -55,8 +55,8 @@ Editar o `.env` com os dados do seu banco:
 ```env
 DB_URL=jdbc:postgresql://localhost:5432/raizes_nordeste
 DB_USER=postgres
-DB_PASSWORD=sua_senha_aqui
-JWT_SECRET=raizes-nordeste-secret-key-troque-em-producao
+DB_PASSWORD=<sua_senha_aqui>
+JWT_SECRET=<seu_segredo_jwt_aqui>
 JWT_EXPIRATION=86400000
 ```
 
@@ -72,8 +72,8 @@ mvn clean install -DskipTests
 # exportar as variaveis primeiro
 export DB_URL=jdbc:postgresql://localhost:5432/raizes_nordeste
 export DB_USER=postgres
-export DB_PASSWORD=sua_senha
-export JWT_SECRET=raizes-nordeste-secret-key-troque-em-producao
+export DB_PASSWORD=<sua_senha_aqui>
+export JWT_SECRET=<seu_segredo_jwt_aqui>
 
 mvn spring-boot:run
 ```
@@ -88,9 +88,9 @@ Na primeira execução o sistema já cria os dados de teste automaticamente:
 
 | Usuário | E-mail | Senha | Perfil |
 |---|---|---|---|
-| Administrador | admin@raizesnordeste.com | Admin@123 | ADMIN |
-| Maria Silva | maria@email.com | Senha@123 | CLIENTE |
-| João Cozinha | cozinha@raizesnordeste.com | Cozinha@123 | COZINHA |
+| Administrador | admin@raizesnordeste.com | ******** | ADMIN |
+| Maria Silva | maria@email.com | ******** | CLIENTE |
+| João Cozinha | cozinha@raizesnordeste.com | ******** | COZINHA |
 
 Também são criadas 2 unidades (Fortaleza e Recife) e 3 produtos com estoque.
 
