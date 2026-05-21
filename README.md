@@ -86,11 +86,13 @@ API disponivel em: **http://localhost:8080**
 
 Na primeira execução o sistema já cria os dados de teste automaticamente:
 
-| Usuário | E-mail | Senha | Perfil |
-|---|---|---|---|
-| Administrador | admin@raizesnordeste.com | ******** | ADMIN |
-| Maria Silva | maria@email.com | ******** | CLIENTE |
-| João Cozinha | cozinha@raizesnordeste.com | ******** | COZINHA |
+| Usuário | E-mail | Perfil |
+|---|---|---|
+| Administrador | admin@raizesnordeste.com | ADMIN |
+| Maria Silva | maria@email.com | CLIENTE |
+| João Cozinha | cozinha@raizesnordeste.com | COZINHA |
+
+*(As senhas de teste foram omitidas por questões de segurança)*
 
 Também são criadas 2 unidades (Fortaleza e Recife) e 3 produtos com estoque.
 
