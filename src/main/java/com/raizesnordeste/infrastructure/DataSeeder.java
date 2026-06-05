@@ -34,26 +34,38 @@ public class DataSeeder {
 
             // Usuários
             UsuarioEntity admin = usuarios.save(UsuarioEntity.builder()
-                    .nome("Administrador")
-                    .email("admin@raizesnordeste.com")
-                    .senhaHash(encoder.encode("Admin@123"))
+                    .nome("Admin Raízes")
+                    .email("admin@raizes.com")
+                    .senhaHash(encoder.encode("admin123"))
                     .perfil(PerfilUsuario.ADMIN).ativo(true).consentimentoFidelidade(false).build());
 
-            UsuarioEntity cliente = usuarios.save(UsuarioEntity.builder()
-                    .nome("Maria Silva")
-                    .email("maria@email.com")
-                    .senhaHash(encoder.encode("Senha@123"))
-                    .perfil(PerfilUsuario.CLIENTE).ativo(true).consentimentoFidelidade(true).build());
+            UsuarioEntity gerente = usuarios.save(UsuarioEntity.builder()
+                    .nome("Gerente Raízes")
+                    .email("gerente@raizes.com")
+                    .senhaHash(encoder.encode("gerente123"))
+                    .perfil(PerfilUsuario.GERENTE).ativo(true).consentimentoFidelidade(false).build());
 
-            usuarios.save(UsuarioEntity.builder()
-                    .nome("João Cozinha")
-                    .email("cozinha@raizesnordeste.com")
-                    .senhaHash(encoder.encode("Cozinha@123"))
+            UsuarioEntity cozinha = usuarios.save(UsuarioEntity.builder()
+                    .nome("Cozinheiro Raízes")
+                    .email("cozinha@raizes.com")
+                    .senhaHash(encoder.encode("cozinha123"))
                     .perfil(PerfilUsuario.COZINHA).ativo(true).consentimentoFidelidade(false).build());
 
-            // Fidelidade para a cliente
+            UsuarioEntity atendente = usuarios.save(UsuarioEntity.builder()
+                    .nome("Atendente Raízes")
+                    .email("atendente@raizes.com")
+                    .senhaHash(encoder.encode("atendente123"))
+                    .perfil(PerfilUsuario.ATENDENTE).ativo(true).consentimentoFidelidade(false).build());
+
+            UsuarioEntity cliente = usuarios.save(UsuarioEntity.builder()
+                    .nome("Cliente Raízes")
+                    .email("cliente@raizes.com")
+                    .senhaHash(encoder.encode("cliente123"))
+                    .perfil(PerfilUsuario.CLIENTE).ativo(true).consentimentoFidelidade(true).build());
+
+            // Fidelidade para o cliente (500 pontos)
             fidelidade.save(FidelidadeEntity.builder()
-                    .usuario(cliente).saldoPontos(0).build());
+                    .usuario(cliente).saldoPontos(500).build());
 
             // Unidades
             UnidadeEntity fortaleza = unidades.save(UnidadeEntity.builder()
@@ -87,10 +99,15 @@ public class DataSeeder {
             estoques.save(EstoqueEntity.builder().unidade(recife).produto(baiao).quantidade(0).build()); // sem estoque
             estoques.save(EstoqueEntity.builder().unidade(recife).produto(caldo).quantidade(80).build());
 
-            log.info("Seed concluído! Usuários, unidades, produtos e estoques criados.");
-            log.info("Admin: admin@raizesnordeste.com / Admin@123");
-            log.info("Cliente: maria@email.com / Senha@123");
-            log.info("Cozinha: cozinha@raizesnordeste.com / Cozinha@123");
+            // Print idêntico ao repositório de referência no console
+            System.out.println("=== Seed concluído! ===");
+            System.out.println("Usuários criados:");
+            System.out.println("  ADMIN:     admin@raizes.com / admin123");
+            System.out.println("  GERENTE:   gerente@raizes.com / gerente123");
+            System.out.println("  COZINHA:   cozinha@raizes.com / cozinha123");
+            System.out.println("  ATENDENTE: atendente@raizes.com / atendente123");
+            System.out.println("  CLIENTE:   cliente@raizes.com / cliente123 (500 pontos)");
+            System.out.println("Swagger: http://localhost:8080/swagger-ui.html");
         };
     }
 }

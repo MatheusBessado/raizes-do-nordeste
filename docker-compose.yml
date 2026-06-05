@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: raizes-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: raizes_nordeste
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: superpassword2026
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - raizes-net
+
+  app:
+    build: .
+    container_name: raizes-app
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=jdbc:postgresql://postgres:5432/raizes_nordeste
+      - DB_USER=postgres
+      - DB_PASSWORD=superpassword2026
+      - JWT_SECRET=raizesnordeste-secret-key-super-segura-2026-backend-atividade-docker
+      - JWT_EXPIRATION=86400000
+    depends_on:
+      - postgres
+    networks:
+      - raizes-net
+
+networks:
+  raizes-net:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: local

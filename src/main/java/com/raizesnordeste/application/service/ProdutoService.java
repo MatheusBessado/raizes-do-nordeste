@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -29,12 +29,14 @@ public class ProdutoService {
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Produto não encontrado."));
     }
 
+    @Transactional
     public ProdutoEntity criar(String nome, String descricao, BigDecimal preco, String categoria) {
         return produtoRepository.save(ProdutoEntity.builder()
                 .nome(nome).descricao(descricao).preco(preco)
                 .categoria(categoria).disponivel(true).build());
     }
 
+    @Transactional
     public ProdutoEntity atualizar(Long id, String nome, String descricao, BigDecimal preco,
                                    String categoria, Boolean disponivel) {
         ProdutoEntity p = buscarPorId(id);
@@ -44,5 +46,12 @@ public class ProdutoService {
         if (categoria != null) p.setCategoria(categoria);
         if (disponivel != null) p.setDisponivel(disponivel);
         return produtoRepository.save(p);
+    }
+
+    @Transactional
+    public void deletar(Long id) {
+        ProdutoEntity p = buscarPorId(id);
+        p.setDisponivel(false);
+        produtoRepository.save(p);
     }
 }
