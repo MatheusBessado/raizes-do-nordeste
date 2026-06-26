@@ -88,7 +88,7 @@ class AuthServiceTest {
     @Test
     void cadastrarComSucessoCriaFidelidadeSeConsentido() {
         CadastroUsuarioRequest req = new CadastroUsuarioRequest(
-                "Novo User", "novo@email.com", "senha123", PerfilUsuario.CLIENTE, "12345678901", "85999999999", true
+                "Novo User", "novo@email.com", "senha123", PerfilUsuario.CLIENTE, true
         );
         when(usuarioRepository.existsByEmail(req.email())).thenReturn(false);
         when(passwordEncoder.encode(req.senha())).thenReturn("hash_nova");

@@ -1,0 +1,225 @@
+<svg width="900" height="750" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .window {
+        font-family: sans-serif;
+        background-color: #fafafa;
+        color: #3b4151;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        overflow: hidden;
+      }
+      .title-bar {
+        background-color: #1b1b1b;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        color: #fff;
+      }
+      .swagger-logo {
+        font-size: 20px;
+        font-weight: bold;
+        color: #85ea2d;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .swagger-logo span {
+        background-color: #85ea2d;
+        color: #1b1b1b;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .student-ru-header {
+        margin-left: auto;
+        font-size: 13px;
+        color: #aaa;
+      }
+      .student-ru-header strong {
+        color: #85ea2d;
+      }
+      .content {
+        padding: 25px;
+        height: calc(100% - 50px);
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+      .api-info {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .api-title {
+        font-size: 32px;
+        margin: 0;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .version-badge {
+        background-color: #7d8492;
+        color: #fff;
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 50px;
+        vertical-align: middle;
+      }
+      .api-desc {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #3b4151;
+        margin: 15px 0;
+      }
+      .contact-info {
+        font-size: 13px;
+        color: #555;
+      }
+      .section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+      }
+      .endpoint-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .endpoint {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+        font-size: 13px;
+        font-family: monospace;
+      }
+      .endpoint.get { border-color: #61affe; background-color: #ebf3fb; }
+      .endpoint.post { border-color: #49cc90; background-color: #e8f6f0; }
+      .endpoint.patch { border-color: #50e3c2; background-color: #eefbf7; }
+      .endpoint.delete { border-color: #f93e3e; background-color: #faebeb; }
+      
+      .method-tag {
+        color: #fff;
+        font-weight: bold;
+        padding: 6px 12px;
+        min-width: 70px;
+        text-align: center;
+      }
+      .method-tag.get { background-color: #61affe; }
+      .method-tag.post { background-color: #49cc90; }
+      .method-tag.patch { background-color: #50e3c2; }
+      .method-tag.delete { background-color: #f93e3e; }
+
+      .path {
+        font-weight: bold;
+        padding: 0 15px;
+        color: #3b4151;
+      }
+      .desc {
+        margin-left: auto;
+        padding-right: 15px;
+        color: #555;
+        font-family: sans-serif;
+        font-size: 12px;
+      }
+    </style>
+  </defs>
+
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="window">
+      <div class="title-bar">
+        <div class="swagger-logo">Swagger <span>UI</span></div>
+        <div class="student-ru-header">
+          Estudante: <strong>Matheus Bessado</strong> | RU: <strong>4712789</strong>
+        </div>
+      </div>
+      <div class="content">
+        <div class="api-info">
+          <h1 class="api-title">
+            Raízes do Nordeste — API Back-End
+            <span class="version-badge">1.0.0</span>
+          </h1>
+          <p class="api-desc">
+            API REST da rede de lanchonetes Raízes do Nordeste. Suporta múltiplos canais: APP, TOTEM, BALCÃO, PICKUP e WEB.
+            <br />
+            <strong>Desenvolvido por Matheus Bessado (RU: 4712789) - UNINTER 2026.</strong>
+          </p>
+          <div class="contact-info">
+            Contato: Matheus Bessado — RU: 4712789 (<a href="mailto:4712789@uninter.edu" style="color: #49cc90;">4712789@uninter.edu</a>)
+          </div>
+        </div>
+
+        <div class="section-title">Autenticação (Auth)</div>
+        <div class="endpoint-group">
+          <div class="endpoint post">
+            <span class="method-tag post">POST</span>
+            <span class="path">/auth/cadastro</span>
+            <span class="desc">Cria um novo cadastro de usuário cliente</span>
+          </div>
+          <div class="endpoint post">
+            <span class="method-tag post">POST</span>
+            <span class="path">/auth/login</span>
+            <span class="desc">Valida credenciais e gera token JWT</span>
+          </div>
+        </div>
+
+        <div class="section-title">Pedidos (Pedidos)</div>
+        <div class="endpoint-group">
+          <div class="endpoint post">
+            <span class="method-tag post">POST</span>
+            <span class="path">/pedidos</span>
+            <span class="desc">Inicia a criação de um pedido vinculando itens, unidade e o canal obrigatório</span>
+          </div>
+          <div class="endpoint get">
+            <span class="method-tag get">GET</span>
+            <span class="path">/pedidos</span>
+            <span class="desc">Lista e filtra pedidos por canal ou status de forma paginada</span>
+          </div>
+          <div class="endpoint get">
+            <span class="method-tag get">GET</span>
+            <span class="path">/pedidos/{id}</span>
+            <span class="desc">Busca detalhes e itens de um pedido</span>
+          </div>
+          <div class="endpoint patch">
+            <span class="method-tag patch">PATCH</span>
+            <span class="path">/pedidos/{id}/status</span>
+            <span class="desc">Atualiza a etapa do pedido (EM_PREPARO, PRONTO, ENTREGUE)</span>
+          </div>
+        </div>
+
+        <div class="section-title">Estoque (Estoque)</div>
+        <div class="endpoint-group">
+          <div class="endpoint get">
+            <span class="method-tag get">GET</span>
+            <span class="path">/estoque/unidades/{unidadeId}</span>
+            <span class="desc">Exibe a situação do estoque da filial</span>
+          </div>
+          <div class="endpoint post">
+            <span class="method-tag post">POST</span>
+            <span class="path">/estoque/unidades/{unidadeId}/movimentar</span>
+            <span class="desc">Executa a movimentação manual de "ENTRADA" ou "SAIDA" de estoque</span>
+          </div>
+        </div>
+
+        <div class="section-title">Pagamentos (Pagamentos)</div>
+        <div class="endpoint-group">
+          <div class="endpoint post">
+            <span class="method-tag post">POST</span>
+            <span class="path">/pagamentos/callback</span>
+            <span class="desc">Recebe resposta assíncrona do processamento financeiro</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>

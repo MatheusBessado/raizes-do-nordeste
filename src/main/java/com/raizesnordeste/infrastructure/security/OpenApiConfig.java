@@ -17,9 +17,12 @@ public class OpenApiConfig {
             .info(new Info()
                 .title("Raízes do Nordeste — API Back-End")
                 .description("API REST da rede de lanchonetes Raízes do Nordeste. " +
-                             "Suporta múltiplos canais: APP, TOTEM, BALCÃO, PICKUP e WEB.")
+                             "Suporta múltiplos canais: APP, TOTEM, BALCÃO, PICKUP e WEB. " +
+                             "Desenvolvido por Matheus Bessado (RU: 4712789) - UNINTER 2026.")
                 .version("1.0.0")
-                .contact(new Contact().name("Projeto Multidisciplinar — UNINTER 2026")))
+                .contact(new Contact()
+                    .name("Matheus Bessado — RU: 4712789")
+                    .email("4712789@uninter.edu")))
             .components(new Components()
                 .addSecuritySchemes("bearerAuth",
                     new SecurityScheme()

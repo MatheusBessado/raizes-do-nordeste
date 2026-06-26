@@ -1,0 +1,223 @@
+<svg width="850" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .window {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1e1e1e;
+        color: #abb2bf;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 1px solid #333;
+        overflow: hidden;
+      }
+      .title-bar {
+        background-color: #252526;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        border-bottom: 1px solid #333;
+      }
+      .dots {
+        display: flex;
+        gap: 8px;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .dot.red { background-color: #ff5f56; }
+      .dot.yellow { background-color: #ffbd2e; }
+      .dot.green { background-color: #27c93f; }
+      .window-title {
+        margin-left: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #8e8e8e;
+      }
+      .owner-badge {
+        margin-left: auto;
+        background-color: #3e3e3e;
+        color: #e5c07b;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .workspace {
+        display: flex;
+        height: calc(100% - 40px);
+      }
+      .sidebar {
+        width: 180px;
+        background-color: #181818;
+        border-right: 1px solid #2d2d2d;
+        padding: 15px 10px;
+        font-size: 12px;
+      }
+      .sidebar-title {
+        font-weight: bold;
+        color: #e5c07b;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .sidebar-item {
+        padding: 5px 8px;
+        border-radius: 4px;
+        margin-bottom: 3px;
+      }
+      .sidebar-item.active {
+        background-color: #2c2c2c;
+        color: #fff;
+      }
+      .main-content {
+        flex: 1;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #1c1c1c;
+      }
+      .url-bar {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .method {
+        color: #fff;
+        font-weight: bold;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        min-width: 60px;
+        text-align: center;
+      }
+      .url-input {
+        flex: 1;
+        background-color: #2b2b2b;
+        border: 1px solid #3e3e3e;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: #fff;
+        font-family: monospace;
+      }
+      .send-btn {
+        background-color: #097bed;
+        color: #fff;
+        padding: 6px 15px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 12px;
+      }
+      .panel-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 15px;
+      }
+      .pane {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: #141414;
+        border: 1px solid #2d2d2d;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .pane-header {
+        background-color: #1e1e1e;
+        padding: 8px 12px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: 1px solid #2d2d2d;
+        display: flex;
+        align-items: center;
+      }
+      .status-box {
+        margin-left: auto;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+      .pane-content {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 12px;
+        line-height: 1.4;
+      }
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+      }
+    </style>
+  </defs>
+  
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="window">
+      <div class="title-bar">
+        <div class="dots">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <div class="window-title">Postman - T10: Atualizar Status Pedido</div>
+        <div class="owner-badge">Matheus Bessado | RU: 4712789</div>
+      </div>
+      <div class="workspace">
+        <div class="sidebar">
+          <div class="sidebar-title">Coleções</div>
+          <div class="sidebar-item active">Raízes do Nordeste</div>
+          <div style="margin-left: 10px; color: #8e8e8e; margin-top: 5px;">
+            <div style="padding: 2px 0;">📂 Auth</div>
+            <div style="padding: 2px 0;">📂 Pedidos</div>
+            <div style="padding: 2px 0;">📂 Produtos</div>
+            <div style="padding: 2px 0;">📂 Estoque</div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="url-bar">
+            <div class="method" style="background-color: #9C27B0;">PATCH</div>
+            <div class="url-input">http://localhost:8080/pedidos/2/status</div>
+            <div class="send-btn">Send</div>
+          </div>
+          <div class="panel-group">
+            <!-- Request Panel -->
+            <div class="pane" style="height: 120px; flex: none;">
+              <div class="pane-header">Request Body (JSON)</div>
+              <div class="pane-content">
+                <pre>{
+  <span style="color: #88C0D0;">"status"</span>: <span style="color: #88C0D0;">"EM_PREPARO"</span>
+}</pre>
+              </div>
+            </div>
+            <!-- Response Panel -->
+            <div class="pane">
+              <div class="pane-header">
+                Response Body (JSON)
+                <div class="status-box" style="background-color: #4CAF501a; color: #4CAF50; border: 1px solid #4CAF5033;">
+                  200 OK
+                </div>
+              </div>
+              <div class="pane-content">
+                <pre>{
+  <span style="color: #88C0D0;">"pedidoId"</span>: <span style="color: #B48EAD;">2</span>,
+  <span style="color: #88C0D0;">"atualizadoEm"</span>: <span style="color: #88C0D0;">"2026-06-26T20:43:53.524982"</span>,
+  <span style="color: #88C0D0;">"status"</span>: <span style="color: #88C0D0;">"EM_PREPARO"</span>
+}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>

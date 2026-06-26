@@ -1,0 +1,170 @@
+{
+  "T01": {
+    "url": "http://localhost:8080/auth/login",
+    "method": "POST",
+    "status": 200,
+    "headers": {
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Fri, 26 Jun 2026 20:43:52 GMT",
+      "expires": "0",
+      "keep-alive": "timeout=60",
+      "pragma": "no-cache",
+      "transfer-encoding": "chunked",
+      "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "expiresIn": 86400,
+      "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkByYWl6ZXMuY29tIiwicGVyZmlsIjoiQURNSU4iLCJpYXQiOjE3ODI1MDY2MzIsImV4cCI6MTc4MjU5MzAzMn0.XHFuydEQuCCvsZO_gisG1DRcyoL9v9MMfSam5Fu5TkQ",
+      "tokenType": "Bearer",
+      "user": {
+        "nome": "Admin Raízes",
+        "id": 1,
+        "email": "admin@raizes.com",
+        "perfil": "ADMIN"
+      }
+    }
+  },
+  "T02": {
+    "url": "http://localhost:8080/pedidos",
+    "method": "GET",
+    "status": 401,
+    "headers": {
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "connection": "keep-alive",
+      "content-length": "66",
+      "content-type": "application/json;charset=ISO-8859-1",
+      "date": "Fri, 26 Jun 2026 20:43:52 GMT",
+      "expires": "0",
+      "keep-alive": "timeout=60",
+      "pragma": "no-cache",
+      "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "error": "NAO_AUTENTICADO",
+      "message": "Token ausente ou invalido."
+    }
+  },
+  "T05": {
+    "url": "http://localhost:8080/pedidos",
+    "method": "POST",
+    "status": 201,
+    "headers": {
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Fri, 26 Jun 2026 20:43:52 GMT",
+      "expires": "0",
+      "keep-alive": "timeout=60",
+      "pragma": "no-cache",
+      "transfer-encoding": "chunked",
+      "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "canalPedido": "APP",
+      "total": 57.8,
+      "itens": [
+        {
+          "precoUnitario": 28.9,
+          "produtoId": 1,
+          "subtotal": 57.8,
+          "nomeProduto": "Tapioca Nordestina",
+          "quantidade": 2
+        }
+      ],
+      "pedidoId": 2,
+      "criadoEm": "2026-06-26T20:43:53.24246",
+      "pagamento": {
+        "mensagem": "Pagamento aprovado com sucesso.",
+        "transacaoId": "dba6f24b-e03a-4d5a-825a-3ba535cc8bc7",
+        "status": "APROVADO"
+      },
+      "status": "AGUARDANDO_PAGAMENTO"
+    }
+  },
+  "T07": {
+    "url": "http://localhost:8080/pedidos",
+    "method": "POST",
+    "status": 409,
+    "headers": {
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Fri, 26 Jun 2026 20:43:52 GMT",
+      "expires": "0",
+      "keep-alive": "timeout=60",
+      "pragma": "no-cache",
+      "transfer-encoding": "chunked",
+      "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "timestamp": "2026-06-26T20:43:53.442376522Z",
+      "requestId": "b8a10f54-ac47-48e3-927a-5ad83f95bd8a",
+      "message": "Estoque insuficiente para 'Baião de Dois'. Disponível: 0",
+      "error": "ESTOQUE_INSUFICIENTE",
+      "path": "/pedidos",
+      "details": []
+    }
+  },
+  "T08": {
+    "url": "http://localhost:8080/pagamentos/callback",
+    "method": "POST",
+    "status": 200,
+    "headers": {
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Fri, 26 Jun 2026 20:43:52 GMT",
+      "expires": "0",
+      "keep-alive": "timeout=60",
+      "pragma": "no-cache",
+      "transfer-encoding": "chunked",
+      "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "pedidoId": 2,
+      "novoStatus": "PAGAMENTO_CONFIRMADO",
+      "transacaoId": "TX-4712789-MOCK"
+    }
+  },
+  "T10": {
+    "url": "http://localhost:8080/pedidos/2/status",
+    "method": "PATCH",
+    "status": 200,
+    "headers": {
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "connection": "keep-alive",
+      "content-type": "application/json",
+      "date": "Fri, 26 Jun 2026 20:43:52 GMT",
+      "expires": "0",
+      "keep-alive": "timeout=60",
+      "pragma": "no-cache",
+      "transfer-encoding": "chunked",
+      "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "x-xss-protection": "0"
+    },
+    "body": {
+      "pedidoId": 2,
+      "atualizadoEm": "2026-06-26T20:43:53.524982",
+      "status": "EM_PREPARO"
+    }
+  }
+}

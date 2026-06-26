@@ -86,7 +86,7 @@ class PedidoServiceTest {
     @Test
     void criarPedidoComSucesso() {
         var itemReq = new CriarPedidoRequest.ItemPedidoRequest(1L, 2);
-        var req = new CriarPedidoRequest(1L, CanalPedido.APP, List.of(itemReq), "CARTAO");
+        var req = new CriarPedidoRequest(CanalPedido.APP, 1L, List.of(itemReq), "CARTAO");
 
         when(usuarioRepository.findByEmail("maria@email.com")).thenReturn(Optional.of(cliente));
         when(unidadeRepository.findById(1L)).thenReturn(Optional.of(unidade));
@@ -115,7 +115,7 @@ class PedidoServiceTest {
     @Test
     void criarPedidoEstoqueInsuficienteLancaExcecao() {
         var itemReq = new CriarPedidoRequest.ItemPedidoRequest(1L, 50); // mais que 10
-        var req = new CriarPedidoRequest(1L, CanalPedido.APP, List.of(itemReq), "CARTAO");
+        var req = new CriarPedidoRequest(CanalPedido.APP, 1L, List.of(itemReq), "CARTAO");
 
         when(usuarioRepository.findByEmail("maria@email.com")).thenReturn(Optional.of(cliente));
         when(unidadeRepository.findById(1L)).thenReturn(Optional.of(unidade));

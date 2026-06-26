@@ -33,7 +33,7 @@ class PedidoControllerTest {
     @WithMockUser(username = "cliente@raizes.com", roles = "CLIENTE")
     void criarPedidoComSucesso() throws Exception {
         var item = new CriarPedidoRequest.ItemPedidoRequest(1L, 2);
-        var req = new CriarPedidoRequest(1L, CanalPedido.APP, List.of(item), "PIX");
+        var req = new CriarPedidoRequest(CanalPedido.APP, 1L, List.of(item), "PIX");
 
         mockMvc.perform(post("/pedidos")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -45,13 +45,13 @@ class PedidoControllerTest {
     }
 
     @Test
-    void criarPedidoSemAutenticacaoRetornaForbidden() throws Exception {
+    void criarPedidoSemAutenticacaoRetornaUnauthorized() throws Exception {
         var item = new CriarPedidoRequest.ItemPedidoRequest(1L, 2);
-        var req = new CriarPedidoRequest(1L, CanalPedido.APP, List.of(item), "PIX");
+        var req = new CriarPedidoRequest(CanalPedido.APP, 1L, List.of(item), "PIX");
 
         mockMvc.perform(post("/pedidos")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(req)))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isUnauthorized());
     }
 }
