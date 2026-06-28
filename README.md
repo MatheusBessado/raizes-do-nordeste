@@ -54,6 +54,15 @@ A arquitetura do backend é baseada em uma divisão limpa por camadas que isolam
 - **Docker** e **Docker Compose** instalados (Recomendado)
 - Ou alternativamente: **Java 17 (JDK)**, **Maven 3.6+** e uma instância local do **PostgreSQL 15**.
 
+
+## 🧪 Como executar os testes
+mvn test — testes automatizados (JUnit 5 + H2)
+Para testes manuais: importe raizes-nordeste.postman_collection.json no Postman.
+Ordem sugerida: Auth → Unidades → Produtos → Estoque → Pedidos → Pagamentos → Erros.
+Pre-requisito: API rodando + seed executado automaticamente na inicializacao.
+
+
+
 ---
 
 ### 1. Execução via Docker (Recomendado)
